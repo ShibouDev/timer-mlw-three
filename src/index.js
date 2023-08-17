@@ -1,11 +1,11 @@
-import * as THREE from 'three'
-import ReactDOM from 'react-dom'
-import React, { Suspense, useState, useEffect, useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import Text from './Text'
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import ReactDOM from 'react-dom'
+import * as THREE from 'three'
 import Effects from './Effects'
-import Sparks from './Sparks'
 import Particles from './Particles'
+import Sparks from './Sparks'
+import Text from './Text'
 import GlobeMesh from './globe/mesh'
 import './styles.css'
 
@@ -43,7 +43,7 @@ function Number({ days, hours, minutes }) {
     if (ref.current) {
       ref.current.position.x = THREE.MathUtils.lerp(ref.current.position.x, state.mouse.x * 2, 0.1)
       ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, state.mouse.y / 2, 0.1)
-      ref.current.rotation.y = 0.8
+      ref.current.rotation.y = 0.6
     }
   })
   return (
@@ -89,7 +89,7 @@ function App() {
       dpr={[1, 2]}
       camera={{ fov: 110, position: [8, 0, 30] }}
       onCreated={({ gl }) => {
-        // gl.toneMapping = THREE.Uncharted2ToneMapping
+        gl.toneMapping = THREE.ReinhardToneMapping
         gl.setClearColor(new THREE.Color('#050505'))
       }}>
       <fog attach="fog" args={['white', 40, 100]} />
