@@ -1,13 +1,14 @@
 import React from 'react';
-import Graticule from './graticule';
 import Countries from './countries';
+import Graticule from "./graticule";
 const GlobeMesh = () => {
     return (
         <mesh>
             <sphereGeometry args={[10, 30, 20]} />
             <meshPhongMaterial color="#191919" transparent={true} opacity={0.8} />
             <Graticule />
-            <Countries />
+            <Countries size={10} />
+            <Countries size={50} />
         </mesh>
     );
 };
