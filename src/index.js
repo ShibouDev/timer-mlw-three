@@ -6,6 +6,7 @@ import Text from './Text'
 import Effects from './Effects'
 import Sparks from './Sparks'
 import Particles from './Particles'
+import GlobeMesh from './globe/mesh'
 import './styles.css'
 
 function Ellipse(props) {
@@ -93,6 +94,8 @@ function App() {
       }}>
       <fog attach="fog" args={['white', 40, 100]} />
       <pointLight distance={80} intensity={2} color="white" />
+      <ambientLight intensity={1.3} />
+      <GlobeMesh />
       <Number mouse={mouse}
         days={days < 10 ? "0" + days.toString() : days.toString()}
         hours={hours < 10 ? "0" + hours.toString() : hours.toString()}
