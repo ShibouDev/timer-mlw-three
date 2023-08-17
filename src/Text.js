@@ -7,6 +7,7 @@ const Text = forwardRef(({ children, vAlign = 'center', size, height, hAlign = '
   const config = useMemo(() => ({ font, size, height }), [font])
   const mesh = useRef()
   useLayoutEffect(() => {
+    mesh.current.position.z = 25
     const size = new THREE.Vector3()
     mesh.current.geometry.computeBoundingBox()
     mesh.current.geometry.boundingBox.getSize(size)
@@ -14,7 +15,7 @@ const Text = forwardRef(({ children, vAlign = 'center', size, height, hAlign = '
     mesh.current.position.y = vAlign === 'center' ? -size.y / 2 : vAlign === 'top' ? 0 : -size.y
   }, [children])
   return (
-    <group ref={ref} {...props} scale={[0.1 * size, 0.1 * size, 0.1]}>
+    <group ref={ref} {...props} scale={[0.09 * size, 0.09 * size, 0.15]}>
       <mesh ref={mesh}>
         <textGeometry args={[children, config]} />
         <meshNormalMaterial/>
