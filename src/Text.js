@@ -1,6 +1,6 @@
-import * as THREE from 'three'
-import React, { forwardRef, useLayoutEffect, useRef, useMemo } from 'react'
 import { useLoader } from '@react-three/fiber'
+import React, { forwardRef, useLayoutEffect, useMemo, useRef } from 'react'
+import * as THREE from 'three'
 
 const Text = forwardRef(({ children, vAlign = 'center', size, height, hAlign = 'center', color = '#000000', ...props }, ref) => {
   const font = useLoader(THREE.FontLoader, '/Roboto.json')
@@ -17,7 +17,7 @@ const Text = forwardRef(({ children, vAlign = 'center', size, height, hAlign = '
     <group ref={ref} {...props} scale={[0.1 * size, 0.1 * size, 0.1]}>
       <mesh ref={mesh}>
         <textGeometry args={[children, config]} />
-        <meshNormalMaterial />
+        <meshNormalMaterial/>
       </mesh>
     </group>
   )

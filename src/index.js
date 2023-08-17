@@ -94,7 +94,7 @@ function App() {
       }}>
       <fog attach="fog" args={['white', 40, 100]} />
       <pointLight distance={80} intensity={2} color="white" />
-      <ambientLight intensity={1.3} />
+      <ambientLight intensity={1.4} />
       <GlobeMesh />
       <Number mouse={mouse}
         days={days < 10 ? "0" + days.toString() : days.toString()}
@@ -102,7 +102,7 @@ function App() {
         minutes={minutes < 10 ? "0" + minutes.toString() : minutes.toString()}
       />
       <Particles count={isMobile ? 5000 : 10000} mouse={mouse} />
-      <Sparks count={20} mouse={mouse} colors={['#A2CCB6', '#FCEEB5', '#EE786E', '#e0feff', 'lightpink', 'lightblue']} />
+      <Sparks count={20} mouse={mouse} colors={['#9933ff', '#42aaff', '#77dde7', '#3eb489', 'lightpink', 'lightblue']} />
       <Effects />
     </Canvas>
   )
